@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { GlobalProvider } from '../context/GlobalContext';
+import { GlobalProvider } from "../context/GlobalContext";
+import { AnimeProvider } from "../context/AnimeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,11 +13,13 @@ export const metadata = {
 const MainLayout = ({ children }) => {
   return (
     <GlobalProvider>
-      <html lang='en'>
-          <body>
+      <html lang="en">
+        <body>
+          <AnimeProvider>
             <main>{children}</main>
-          </body>
-        </html>
+          </AnimeProvider>
+        </body>
+      </html>
     </GlobalProvider>
   );
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let baseURL = 'http://localhost:8000/api/';
+let baseURL = 'https://api.jikan.moe/v4/';
 
 const httpClient = axios.create({ baseURL });
 
