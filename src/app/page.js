@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import Image from "next/image";
 import { Fragment } from "react";
 
@@ -13,7 +13,6 @@ export default function Home() {
             Welcome to <a href="https://nextjs.org">Next.js!</a>
           </h1>
         </div>
-        
       </main>
       <Footer />
     </Fragment>

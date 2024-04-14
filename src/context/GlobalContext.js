@@ -1,22 +1,26 @@
-'use client'
+'use client';
+import { createContext, useContext, useState } from 'react';
 
-import { createContext, useContext, useState } from "react";
-
+// Create context
 const GlobalContext = createContext();
 
-// create Provider
-export const GlobalProvider = ({ children }) => {
-  const [enabled, setEnabled] = useState(false);
-  const [myName, setMyName] = useState("John Doe");
+// Create a provider
+export function GlobalProvider({ children }) {
+  const [unreadCount, setUnreadCount] = useState(0);
 
   return (
-    <GlobalContext.Provider value={{ enabled, setEnabled, myName, setMyName }}>
+    <GlobalContext.Provider
+      value={{
+        unreadCount,
+        setUnreadCount,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );
-};
+}
 
-// custom hook to use the context
-export const useGlobalContext = () => {
+// Create a custom hook to access context
+export function useGlobalContext() {
   return useContext(GlobalContext);
-};
+}

@@ -2,10 +2,12 @@
 
 import { Fragment, useState } from 'react'
 import { Switch, Dialog, Transition } from "@headlessui/react";
+import { useGlobalContext } from '../../context/GlobalContext';
 
 
 export default function About() {
   const [enabled, setEnabled] = useState(false);
+  const { unreadCount, setUnreadCount } = useGlobalContext();
   let [isOpen, setIsOpen] = useState(true)
 
   function closeModal() {
@@ -13,6 +15,8 @@ export default function About() {
   }
 
   function openModal() {
+    console.log('open modal ', unreadCount)
+    setUnreadCount(unreadCount + 1)
     setIsOpen(true)
   }
 
